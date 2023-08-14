@@ -6,6 +6,9 @@ from statsmodels.tsa.arima_model import ARIMA
 import openai
 import io
 
+# Set OpenAI API key
+openai.api_key = st.secrets["OPENAI_API_KEY"]
+
 # Sentiment analysis
 @st.cache(allow_output_mutation=True)
 def analyze_sentiment(symbol):
@@ -23,7 +26,7 @@ def analyze_sentiment(symbol):
 @st.cache_data
 def get_stock_data(symbol):
     try:
-        api_key = "YOUR_API_KEY"
+        api_key = st.secrets["FINANCIAL_MODELING_PREP_API_KEY"]
         url = f"https://financialmodelingprep.com/api/v3/historical-price-full/{symbol}"
         response = requests.get(url, params={"apikey": api_key})
         data = response.json()
