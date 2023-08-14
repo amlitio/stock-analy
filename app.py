@@ -50,7 +50,8 @@ def get_inflation_data():
 @st.cache_data
 def scrape_gdp():
     try:
-        url = "https://www.bea.gov/news/schedule"
+        #url = "https://www.bea.gov/news/schedule"
+        url = “https://www.bea.gov/data/gdp/gross-domestic-product”
         response = requests.get(url)
         soup = BeautifulSoup(response.text, 'html.parser')
         gdp = soup.find('span', {'class': 'chart-output'}).text
