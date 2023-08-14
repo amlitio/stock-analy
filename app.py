@@ -20,7 +20,7 @@ def analyze_sentiment(symbol):
         return None
 
 # Stock data API
-@st.cache
+@st.cache_data
 def get_stock_data(symbol):
     try:
         api_key = "YOUR_API_KEY"
@@ -33,7 +33,7 @@ def get_stock_data(symbol):
         return None
 
 # Inflation data
-@st.cache
+@st.cache_data
 def get_inflation_data():
     try:
         url = "https://www.bls.gov/cpi/tables/supplemental-files/historical-cpi-u-202301.csv"
@@ -44,7 +44,7 @@ def get_inflation_data():
         return None
 
 # GDP data
-@st.cache
+@st.cache_data
 def scrape_gdp():
     try:
         url = "https://www.bea.gov/news/schedule"
