@@ -67,11 +67,9 @@ def forecast_trends(df):
 
 # Streamlit app
 st.title('Financial Data Explorer')
-
 option = st.sidebar.selectbox('Choose data', ['Stock', 'Inflation', 'GDP'])
 
 if option == 'Stock':
-
   symbol = st.text_input('Enter stock symbol')
   
   if symbol:
@@ -91,7 +89,6 @@ if option == 'Stock':
         st.line_chart(df['close'])
       
  elif option == 'Inflation':
-
   df = get_inflation_data()
   
   if df is None:
@@ -103,7 +100,6 @@ if option == 'Stock':
     st.line_chart(forecast)
     
  else:
-
   gdp = scrape_gdp()
   
   if gdp is None:
